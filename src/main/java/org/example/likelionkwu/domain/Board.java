@@ -3,9 +3,7 @@ package org.example.likelionkwu.domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.example.likelionkwu.dto.BoardRequest;
 import org.example.likelionkwu.dto.BoardResponse;
 
@@ -13,6 +11,8 @@ import java.util.ArrayList;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Table(name="Board")
 public class Board {
