@@ -8,14 +8,15 @@ import org.example.likelionkwu.dto.BoardRequest;
 import org.example.likelionkwu.dto.BoardResponse;
 
 import java.util.ArrayList;
-@Entity
+
 @Getter
+@Entity
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name="Board")
-public class Board {
+@Table(name = "Board")
+public class Board{
 
     @Id
     Long boardId;
@@ -24,7 +25,7 @@ public class Board {
     String boardContent;
     ArrayList<String> comments;
 
-    public BoardRequest toBoardRequest(){
+    public BoardRequest toBoardRequest() {
         return BoardRequest.builder()
                 .boardId(boardId)
                 .boardTitle(boardTitle)
@@ -35,7 +36,7 @@ public class Board {
 
     }
 
-    public BoardResponse toBoardResponse(){
+    public BoardResponse toBoardResponse() {
         return BoardResponse.builder()
                 .boardId(boardId)
                 .boardTitle(boardTitle)
@@ -45,4 +46,5 @@ public class Board {
                 .build();
 
     }
+
 }

@@ -29,4 +29,15 @@ public class BoardResponse {
                 .comments(comments)
                 .build();
     }
+
+    public static BoardResponse of(Board board)
+    {
+        return BoardResponse.builder()
+                .boardId(board.getBoardId())
+                .boardTitle(board.getBoardTitle())
+                .boardAuthor(board.getBoardAuthor())
+                .boardContent(board.getBoardContent())
+                .comments(board.getComments())
+                .build();
+    }
 }

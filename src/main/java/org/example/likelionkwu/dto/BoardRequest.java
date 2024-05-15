@@ -29,4 +29,15 @@ public class BoardRequest {
                 .comments(comments)
                 .build();
     }
+
+    public static BoardRequest of(Board board)
+    {
+        return BoardRequest.builder()
+                .boardId(board.getBoardId())
+                .boardTitle(board.getBoardTitle())
+                .boardAuthor(board.getBoardAuthor())
+                .boardContent(board.getBoardContent())
+                .comments(board.getComments())
+                .build();
+    }
 }
