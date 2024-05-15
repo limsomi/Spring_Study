@@ -37,7 +37,7 @@ public class Comment {
                 .commentId(commentId)
                 .commentAuthor(commentAuthor)
                 .commentContent(commentContent)
-                .board(board)
+                .boardId(boardId)
                 .build();
     }
 }
