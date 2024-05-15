@@ -16,14 +16,16 @@ public class CommentResponse {
     private  Long commentId;
     private String commentAuthor;
     private  String commentContent;
-    private Board board;
+    private Long boardId;
 
-    public Comment toEntity(){
-        return Comment.builder()
-                .commentId(commentId)
-                .commentAuthor(commentAuthor)
-                .commentContent(commentContent)
-                .board(board)
+
+    public static CommentResponse of(Comment comment)
+    {
+        return CommentResponse.builder()
+                .commentId(comment.getCommentId())
+                .commentAuthor(comment.getCommentAuthor())
+                .commentContent(comment.getCommentContent())
+                .commentId(comment.getCommentId())
                 .build();
     }
 }

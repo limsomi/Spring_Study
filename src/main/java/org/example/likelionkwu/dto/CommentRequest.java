@@ -16,14 +16,14 @@ public class CommentRequest {
     private  Long commentId;
     private String commentAuthor;
     private  String commentContent;
-    private Board board;
+    private Long boardId;
 
     public Comment toEntity(){
         return Comment.builder()
                 .commentId(commentId)
                 .commentAuthor(commentAuthor)
                 .commentContent(commentContent)
-                .board(board)
+                .boardId(boardId)
                 .build();
     }
 }

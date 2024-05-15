@@ -8,6 +8,7 @@ import org.example.likelionkwu.dto.BoardRequest;
 import org.example.likelionkwu.dto.BoardResponse;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
@@ -23,7 +24,7 @@ public class Board{
     String boardTitle;
     String boardAuthor;
     String boardContent;
-    ArrayList<String> comments;
+    List<Comment> comments;
 
     public BoardRequest toBoardRequest() {
         return BoardRequest.builder()

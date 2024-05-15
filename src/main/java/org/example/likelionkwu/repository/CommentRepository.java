@@ -1,4 +1,7 @@
 package org.example.likelionkwu.repository;
 
-public interface CommentRepository {
+import org.example.likelionkwu.domain.Comment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CommentRepository extends JpaRepository<Comment,Long> {
 }

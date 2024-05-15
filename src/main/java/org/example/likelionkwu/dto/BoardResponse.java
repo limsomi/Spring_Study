@@ -5,8 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.likelionkwu.domain.Board;
+import org.example.likelionkwu.domain.Comment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -18,17 +20,8 @@ public class BoardResponse {
     private String boardTitle;
     private String boardAuthor;
     private String boardContent;
-    private ArrayList<String> comments;
+    private List<Comment> comments;
 
-    public Board toEntity(){
-        return Board.builder()
-                .boardId(boardId)
-                .boardTitle(boardTitle)
-                .boardAuthor(boardAuthor)
-                .boardContent(boardContent)
-                .comments(comments)
-                .build();
-    }
 
     public static BoardResponse of(Board board)
     {

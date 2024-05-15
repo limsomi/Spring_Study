@@ -59,7 +59,7 @@ public class BoardService {
             User userEntity=User.builder()
                     .UserName(userAuthor)
                     .build();
-            User saveUser=userRepository.save(userEntity);
+            userRepository.save(userEntity);
         }
         Board saveBoard=boardRepository.save(req.toEntity());
         return saveBoard.getBoardId();

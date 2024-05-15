@@ -21,14 +21,14 @@ public class Comment {
     Long commentId;
     String commentAuthor;
     String commentContent;
-    Board board;
+    Long boardId;
 
     public CommentRequest toCommentRequest(){
         return CommentRequest.builder()
                 .commentId(commentId)
                 .commentAuthor(commentAuthor)
                 .commentContent(commentContent)
-                .board(board)
+                .boardId(boardId)
                 .build();
     }
 
