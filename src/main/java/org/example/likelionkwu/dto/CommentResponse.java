@@ -25,7 +25,7 @@ public class CommentResponse {
                 .commentId(comment.getCommentId())
                 .commentAuthor(comment.getCommentAuthor())
                 .commentContent(comment.getCommentContent())
-                .commentId(comment.getCommentId())
+                .boardId(comment.getBoardId())
                 .build();
     }
 }

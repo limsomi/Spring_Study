@@ -10,10 +10,10 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="User")
+@Table(name="Member")
 @Builder
 public class User {
 
     @Id
-    String UserName;
+    String userName;
 }

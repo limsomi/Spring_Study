@@ -1,8 +1,6 @@
 package org.example.likelionkwu.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.example.likelionkwu.dto.BoardRequest;
 import org.example.likelionkwu.dto.BoardResponse;
@@ -20,32 +18,16 @@ import java.util.List;
 public class Board{
 
     @Id
-    Long boardId;
-    String boardTitle;
-    String boardAuthor;
-    String boardContent;
-    List<Comment> comments;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long boardId;
+    @Column
+    private String boardTitle;
+    @Column
+    private String boardAuthor;
+    @Column
+    private String boardContent;
 
-    public BoardRequest toBoardRequest() {
-        return BoardRequest.builder()
-                .boardId(boardId)
-                .boardTitle(boardTitle)
-                .boardAuthor(boardAuthor)
-                .boardContent(boardContent)
-                .comments(comments)
-                .build();
-
-    }
-
-    public BoardResponse toBoardResponse() {
-        return BoardResponse.builder()
-                .boardId(boardId)
-                .boardTitle(boardTitle)
-                .boardAuthor(boardAuthor)
-                .boardContent(boardContent)
-                .comments(comments)
-                .build();
-
-    }
+    @OneToMany(mappedBy = "boardId",cascade = CascadeType.REMOVE)
+    private List<Comment> comments;
 
 }

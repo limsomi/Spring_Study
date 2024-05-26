@@ -20,7 +20,6 @@ public class BoardResponse {
     private String boardTitle;
     private String boardAuthor;
     private String boardContent;
-    private List<Comment> comments;
 
 
     public static BoardResponse of(Board board)
@@ -30,7 +29,6 @@ public class BoardResponse {
                 .boardTitle(board.getBoardTitle())
                 .boardAuthor(board.getBoardAuthor())
                 .boardContent(board.getBoardContent())
-                .comments(board.getComments())
                 .build();
     }
 }

@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface BoardRepository extends JpaRepository<Board,Long> {
 
-    List<Board> findAllByUser(String boardAuthor);
+    List<Board> findAllByBoardAuthor(String boardAuthor);
 }

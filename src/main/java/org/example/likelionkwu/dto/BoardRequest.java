@@ -1,5 +1,6 @@
 package org.example.likelionkwu.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,20 +16,18 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoardRequest {
-
-    private Long boardId;
+    @JsonProperty
     private String boardTitle;
+    @JsonProperty
     private String boardAuthor;
+    @JsonProperty
     private String boardContent;
-    private List<Comment> comments;
 
     public Board toEntity(){
         return Board.builder()
-                .boardId(boardId)
                 .boardTitle(boardTitle)
                 .boardAuthor(boardAuthor)
                 .boardContent(boardContent)
-                .comments(comments)
                 .build();
     }
 

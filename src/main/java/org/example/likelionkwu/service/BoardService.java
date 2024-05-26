@@ -8,6 +8,7 @@ import org.example.likelionkwu.dto.BoardResponse;
 import org.example.likelionkwu.repository.BoardRepository;
 import org.example.likelionkwu.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -43,7 +44,7 @@ public class BoardService {
 
     public List<BoardResponse> getBoardByUser(String boardAuthor)
     {
-        List<Board> boardListEntity=boardRepository.findAllByUser(boardAuthor);
+        List<Board> boardListEntity=boardRepository.findAllByBoardAuthor(boardAuthor);
         List<BoardResponse> boardListDto=boardListEntity
                 .stream()
                 .map(m-> BoardResponse.of(m))
@@ -51,17 +52,17 @@ public class BoardService {
         return boardListDto;
     }
 
-    public Long writeBoard(BoardRequest req)
+    public Board writeBoard(BoardRequest req)
     {
         String userAuthor=req.getBoardAuthor();
-        if(!userRepository.existByUserName(userAuthor))
+        if(!userRepository.existsByUserName(userAuthor))
         {
             User userEntity=User.builder()
-                    .UserName(userAuthor)
+                    .userName(userAuthor)
                     .build();
             userRepository.save(userEntity);
         }
-        Board saveBoard=boardRepository.save(req.toEntity());
-        return saveBoard.getBoardId();
+        Board saveBoard =boardRepository.save(req.toEntity());
+        return saveBoard;
     }
 }

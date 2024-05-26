@@ -24,14 +24,14 @@ public class CommentService {
     private final CommentRepository commentRepository;
     private final UserRepository userRepository;
     private final BoardRepository boardRepository;
-    public void CreateComment(CommentRequest req)
+    public Board CreateComment(CommentRequest req)
     {
         String userName=req.getCommentAuthor();
 
-        if(!userRepository.existByUserName(userName))
+        if(!userRepository.existsByUserName(userName))
         {
             User userEntity=User.builder()
-                    .UserName(userName)
+                    .userName(userName)
                     .build();
             userRepository.save(userEntity);
         }
@@ -42,7 +42,7 @@ public class CommentService {
         Board board=boardRepository.findById(boardId).get();
 
         board.getComments().add(saveComment);
-
+        return board;
     }
 
     public Pair<List<CommentResponse>,String> getComments(Long boardId)
